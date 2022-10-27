@@ -67,15 +67,78 @@
   z-index: 2;
   transform: translate(-10px, -20px) rotate(-15deg) scale(1.5);
 }
-.container .row .col-4 .card:hover::after {
-  animation-play-state: running;
-}
 .container .row .col-4 .card .card-img-top {
   margin: auto;
   width: 100px;
 }
 .container .row .col-4 .card .card-body {
   text-align: center;
+}
+.container .row .col-4 .card .card-body .card-text .Type {
+  font-weight: bold;
+}
+.container .row .col-4 .card .card-body .card-text .Type .badge {
+  font-size: 0.9rem;
+  border: 1px solid;
+  min-width: 3.5rem;
+  text-transform: capitalize;
+}
+.container .row .col-4 .card .card-body .card-text .Type .normal {
+  background-color: #A8A878;
+}
+.container .row .col-4 .card .card-body .card-text .Type .fire {
+  background-color: #F08030;
+}
+.container .row .col-4 .card .card-body .card-text .Type .normal {
+  background-color: #A8A878;
+}
+.container .row .col-4 .card .card-body .card-text .Type .fighting {
+  background-color: #C03028;
+}
+.container .row .col-4 .card .card-body .card-text .Type .water {
+  background-color: #6890F0;
+}
+.container .row .col-4 .card .card-body .card-text .Type .flying {
+  background-color: #A890F0;
+}
+.container .row .col-4 .card .card-body .card-text .Type .grass {
+  background-color: #78C850;
+}
+.container .row .col-4 .card .card-body .card-text .Type .poison {
+  background-color: #A040A0;
+}
+.container .row .col-4 .card .card-body .card-text .Type .electric {
+  background-color: #F8D030;
+}
+.container .row .col-4 .card .card-body .card-text .Type .ground {
+  background-color: #E0C068;
+}
+.container .row .col-4 .card .card-body .card-text .Type .psychic {
+  background-color: #F85888;
+}
+.container .row .col-4 .card .card-body .card-text .Type .rock {
+  background-color: #B8A038;
+}
+.container .row .col-4 .card .card-body .card-text .Type .ice {
+  background-color: #98D8D8;
+}
+.container .row .col-4 .card .card-body .card-text .Type .bug {
+  background-color: #A8B820;
+}
+.container .row .col-4 .card .card-body .card-text .Type .dragon {
+  background-color: #7038F8;
+}
+.container .row .col-4 .card .card-body .card-text .Type .ghost {
+  background-color: #705898;
+}
+.container .row .col-4 .card .card-body .card-text .Type .dark {
+  background-color: #705848;
+}
+.container .row .col-4 .card .card-body .card-text .Type .steel {
+  background-color: #B8B8D0;
+}
+.container .row .col-4 .card .card-body .card-text .Type .fairy {
+  background-color: #EE99AC;
 }
 
 @keyframes bounce {
@@ -90,11 +153,6 @@
   }
   100% {
     transform: translateY(0);
-  }
-}
-@keyframes rotate-hue {
-  to {
-    filter: hue-rotate(1turn);
   }
 }
 

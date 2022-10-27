@@ -46,7 +46,6 @@
 
     .buttons {
 
-
         .previous {
             top: 30rem;
             left: 28rem;
@@ -62,13 +61,12 @@
         }
     }
 
-  
-
     .row {
 
         margin: auto;
 
         .col-4{
+
             margin-top: 1rem;
 
             .card{
@@ -97,22 +95,107 @@
                         scale(1.5);
 
                     }
-
-                    &::after {
-                        animation-play-state: running;
-                    }
                 }
 
                 .card-img-top{
                     margin: auto;
                     width: 100px;
-                  
-
-                    
                 }
 
                 .card-body {
+
                     text-align: center;
+
+                    .card-text {
+                        .Type {
+                            font-weight: bold;
+
+                            .badge {
+                                font-size: 0.9rem;
+                                border: 1px solid;
+                                min-width: 3.5rem;
+                                text-transform: capitalize;
+                            }
+
+                            .normal{
+                                background-color: #A8A878;
+                            }
+                           
+                            .fire {
+                                background-color: #F08030;
+                            }
+
+                            .normal {
+                                background-color: #A8A878;
+                            }
+
+                            .fighting {
+                                background-color: #C03028;
+                            }
+
+                            .water {
+                                background-color: #6890F0;
+                            }
+
+                            .flying {
+                                background-color: #A890F0;
+                            }
+
+                            .grass{
+                                background-color: #78C850;
+
+                            }
+
+                            .poison {
+                                background-color: #A040A0;
+                            }
+
+                            .electric {
+                                background-color: #F8D030;
+                            }
+
+                            .ground {
+                                background-color: #E0C068;
+                            }
+
+                            .psychic {
+                                background-color: #F85888;
+                            }
+                             
+                            .rock {
+                                background-color: #B8A038;
+                            }
+
+                            .ice {
+                                background-color: #98D8D8;
+                            }
+
+                            .bug {
+                                background-color: #A8B820;
+                            }
+
+                            .dragon {
+                                background-color: #7038F8;
+                            }
+
+                            .ghost {
+                                background-color: #705898;
+                            }
+
+                            .dark {
+                                background-color: #705848;
+                            }
+
+                            .steel {
+                                background-color: #B8B8D0;
+                            }
+
+                            .fairy {
+                                background-color: #EE99AC;
+                            }
+
+                        }
+                    }
                 }
 
             }
@@ -142,10 +225,4 @@
     }
 }
 
-
-@keyframes rotate-hue {
-    to {
-     filter: hue-rotate(1turn);
-    }
-}
 

@@ -1,3 +1,5 @@
+
+const pokemonView = document.querySelector('#pokemonView');
 const previousButton = document.querySelector('#previous');
 const nextButton = document.querySelector('#next');
 
@@ -20,12 +22,19 @@ previousButton.addEventListener('click', () => {
 nextButton.addEventListener('click', () => {
     removeChildNodes(pokemonContainer);
     offset +=9;
-    fetchPokemon(offset,limit);
+    nextButton.disabled = true;
+    loadingScreen()
+    setTimeout(() => {
+        nextButton.disabled = false;
+      fetchPokemon(offset,limit);
+    }, 600);
+      
+    
 })
 
 async function fetchPokemon() {
     
-
+    
     
     try{
         const promises = [];
@@ -45,6 +54,7 @@ async function fetchPokemon() {
                 types: result.types.map(type => type.type.name).join(', ')
     
             }));
+            
             MostrarPokemon(pokemon);
 
         });        
@@ -64,14 +74,13 @@ fetchPokemon();
 function MostrarPokemon(pokemon) {
 
     pokemon.forEach(monster => {
-        console.log(monster);
        
         const div = document.createElement('div');
         div.classList.add('col-4');
 
         const card = document.createElement('div');
         card.classList.add('card');
-        PokemonColorType(monster.types, card);
+        
 
         const img = document.createElement('img');
         img.classList.add('card-img-top');
@@ -85,8 +94,6 @@ function MostrarPokemon(pokemon) {
 
         const cardText = document.createElement('p');
         cardText.classList.add('card-text');
-        cardText.textContent = `Type: ${monster.types}`;
-        
        
 
         div.appendChild(card);
@@ -95,6 +102,7 @@ function MostrarPokemon(pokemon) {
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
         pokemonContainer.appendChild(div);
+        PokemonColorType(monster.types, card, cardText);
 
         
     });
@@ -121,12 +129,40 @@ function removeChildNodes(parent) {
 // }
 
 
-function PokemonColorType (type, card) {
+function PokemonColorType (type, card, textStyle) {
 
     const typeColor = type.split(',')[0];
+    const secondtypeColor = type.split(',')[1];
 
     const url = `"./src/images/blobs/blob${typeColor}.svg"`;
 
     card.style.backgroundImage = "url("+url+")";
+
+    if(secondtypeColor) {
+        textStyle.innerHTML = `<span class="Type">Type: <span class="badge ${typeColor}">${typeColor}</span><span class="badge ${secondtypeColor}">${secondtypeColor}</span></span>`;
+    }
+
+    else {
+        textStyle.innerHTML = `<span class="Type">Type: <span class="badge ${typeColor}">${typeColor}</span></span>`;
+    }
+    
+}
+
+function loadingScreen () {
+   
+    /* Creating a loading spinner. */
+    const loadingDiv = document.createElement('div');
+    loadingDiv.classList.add('d-flex','justify-content-center','align-items-center', 'h-100');
+    const spinner = document.createElement('div');
+    spinner.classList.add('spinner-border');
+    spinner.innerHTML = `<span class="visually-hidden">Loading...</span>`;
+    loadingDiv.appendChild(spinner);
+
+    pokemonView.appendChild(loadingDiv);
+
+
+    setTimeout(() => {
+        loadingDiv.remove();
+    }, 500);
 
 }
