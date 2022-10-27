@@ -27,7 +27,7 @@ nextButton.addEventListener('click', () => {
     setTimeout(() => {
         nextButton.disabled = false;
       fetchPokemon(offset,limit);
-    }, 600);
+    }, 750);
       
     
 })
@@ -163,6 +163,6 @@ function loadingScreen () {
 
     setTimeout(() => {
         loadingDiv.remove();
-    }, 500);
+    }, 750);
 
 }
