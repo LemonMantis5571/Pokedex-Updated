@@ -187,6 +187,7 @@ function PokemonColorType (type, card, textStyle) {
  * @param e - the event object
  */
 const searchBar =  async (e) =>  {
+    previousButton.disabled = true;
     nextButton.disabled = true;
     searchBtn.disabled = true;
     e.preventDefault();
@@ -257,6 +258,7 @@ function showPokemonFiltered(pokemon) {
     if(loadingSpinner) {
         removeChildNodes(loadingSpinner);
         loadingSpinner.remove();
+        previousButton.disabled = false;
         nextButton.disabled = false;
     }
 
