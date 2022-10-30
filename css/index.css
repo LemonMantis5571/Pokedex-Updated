@@ -27,6 +27,19 @@
   gap: 1rem;
   margin: auto;
 }
+.navbar form .search-img {
+  margin: auto;
+  width: 30px;
+  height: 30px;
+}
+.navbar form .btn {
+  border-color: #ddd;
+}
+.navbar form .btn:hover {
+  animation: bounce 0.6s linear;
+  background-color: transparent;
+  border-color: var(--color1);
+}
 
 .container {
   height: 800px;
