@@ -19,6 +19,7 @@ previousButton.disabled = true;
 
 fetchPokemon();
 
+/* Adding event listeners to the previous and next buttons. */
 previousButton.addEventListener('click', () => {
 
         if(offset > 1){
@@ -31,7 +32,7 @@ previousButton.addEventListener('click', () => {
             previousButton.disabled = true;
         }
         
-    });
+});
 
 nextButton.addEventListener('click', () => {
         removeChildNodes(pokemonContainer);
@@ -39,6 +40,7 @@ nextButton.addEventListener('click', () => {
         
 
         if(offset <= 900) {
+            nextButton.disabled = true;
             loadingScreen();
             fetchPokemon(offset,limit);
         }
@@ -49,11 +51,15 @@ nextButton.addEventListener('click', () => {
         }
 
 
-    })
+});
 
 
 
 
+/**
+ * It fetches the pokemon data from the API, then it maps the data to a new object, then it passes the
+ * new object to the MostrarPokemon function.
+ */
 async function fetchPokemon() {
     
     
@@ -90,9 +96,14 @@ async function fetchPokemon() {
 };
 
 
+/**
+ * It takes the data from the API and creates a card for each pokemon.
+ * @param pokemon - the array of pokemon objects
+ */
 function MostrarPokemon(pokemon) {
     
     if(loadingSpinner) {
+        nextButton.disabled = false;
         removeChildNodes(loadingSpinner);
         loadingSpinner.remove();
     }
@@ -176,6 +187,7 @@ function PokemonColorType (type, card, textStyle) {
  * @param e - the event object
  */
 const searchBar =  async (e) =>  {
+    nextButton.disabled = true;
     searchBtn.disabled = true;
     e.preventDefault();
     loadingScreen();
@@ -245,6 +257,7 @@ function showPokemonFiltered(pokemon) {
     if(loadingSpinner) {
         removeChildNodes(loadingSpinner);
         loadingSpinner.remove();
+        nextButton.disabled = false;
     }
 
     pokemon.forEach(monster => {
