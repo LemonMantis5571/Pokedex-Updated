@@ -61,3 +61,4 @@ Future Implementations
  * Search By type
  * More than 9 results for similar names
  * Stats info when a card is clicked
+ * Mobile Ver  (Currently in work)
