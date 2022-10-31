@@ -1,4 +1,4 @@
-import { loadingSpinner, pokemonView } from "./main.js";
+import { loadingSpinner, pokemonView, previousButton, nextButton } from "./main.js";
 
 
 export function printAlert(message,type) {
@@ -37,4 +37,21 @@ export function loadingScreen () {
 
   pokemonView.appendChild(loadingSpinner);
   
+}
+
+export function removeSpinners(situation) {
+
+  if(loadingSpinner && situation === 'plainPokedex') {
+    nextButton.disabled = false;
+    removeChildNodes(loadingSpinner);
+    loadingSpinner.remove();
+  }
+
+
+  if(loadingSpinner && situation === 'SearchBar'){
+    removeChildNodes(loadingSpinner);
+    loadingSpinner.remove();
+    previousButton.remove();
+    nextButton.remove();
+  }
 }

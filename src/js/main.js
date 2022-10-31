@@ -1,9 +1,9 @@
-import {removeChildNodes, loadingScreen, printAlert } from './functions.js';
+import {removeChildNodes, loadingScreen, printAlert, removeSpinners } from './functions.js';
 
 const pokemonContainer = document.querySelector('#Pokemon-Container');
 const searchBtn = document.querySelector('#searchButton');
-const previousButton = document.querySelector('#previous');
-const nextButton = document.querySelector('#next');
+export const previousButton = document.querySelector('#previous');
+export const nextButton = document.querySelector('#next');
 
 export const pokemonView = document.querySelector('#pokemonView');
 export const loadingSpinner = document.querySelector('#loading-div');
@@ -84,7 +84,7 @@ async function fetchPokemon() {
     
             }));
             
-            MostrarPokemon(pokemon);
+            MostrarPokemon(pokemon, 'plainPokedex');
 
         });        
             
@@ -100,13 +100,9 @@ async function fetchPokemon() {
  * It takes the data from the API and creates a card for each pokemon.
  * @param pokemon - the array of pokemon objects
  */
-function MostrarPokemon(pokemon) {
+function MostrarPokemon(pokemon, situation) {
     
-    if(loadingSpinner) {
-        nextButton.disabled = false;
-        removeChildNodes(loadingSpinner);
-        loadingSpinner.remove();
-    }
+    removeSpinners(situation);
 
     pokemon.forEach(monster => {
        
@@ -225,7 +221,7 @@ const searchBar =  async (e) =>  {
             const PokemonReduced = pokemonFiltered.slice(0,9);
 
             if(PokemonReduced.length && id != '') {
-                showPokemonFiltered(PokemonReduced);
+                MostrarPokemon(PokemonReduced, 'SearchBar');
                 printAlert('Displaying matching pokemons', 'sucess');
             }
 
@@ -253,49 +249,44 @@ const searchBar =  async (e) =>  {
  * for each pokemon object in the array, and appends it to the DOM.
  * @param pokemon - the array of pokemon objects
  */
-function showPokemonFiltered(pokemon) {
+// function showPokemonFiltered(pokemon) {
 
-    if(loadingSpinner) {
-        removeChildNodes(loadingSpinner);
-        loadingSpinner.remove();
-        previousButton.remove();
-        nextButton.remove();
-    }
+//     removeSpinners('SearchBar');
 
 
-    pokemon.forEach(monster => {
-        const div = document.createElement('div');
-        div.classList.add('col-4');
+//     pokemon.forEach(monster => {
+//         const div = document.createElement('div');
+//         div.classList.add('col-4');
         
-        const card = document.createElement('div');
-        card.classList.add('card');
+//         const card = document.createElement('div');
+//         card.classList.add('card');
                         
         
-        const img = document.createElement('img');
-        img.classList.add('card-img-top');
-        img.src = monster.image;
+//         const img = document.createElement('img');
+//         img.classList.add('card-img-top');
+//         img.src = monster.image;
         
-        const cardBody = document.createElement('div');
-        cardBody.classList.add('card-body');
+//         const cardBody = document.createElement('div');
+//         cardBody.classList.add('card-body');
         
-        const cardTitle = document.createElement('h5');
-        cardTitle.textContent = `${monster.id}. ${monster.name.toUpperCase()}`;
+//         const cardTitle = document.createElement('h5');
+//         cardTitle.textContent = `${monster.id}. ${monster.name.toUpperCase()}`;
         
-        const cardText = document.createElement('p');
-        cardText.classList.add('card-text');
+//         const cardText = document.createElement('p');
+//         cardText.classList.add('card-text');
                     
         
-        div.appendChild(card);
-        card.appendChild(img);
-        card.appendChild(cardBody);
-        cardBody.appendChild(cardTitle);
-        cardBody.appendChild(cardText);
-        pokemonContainer.appendChild(div);
-        PokemonColorType(monster.types, card, cardText);
+//         div.appendChild(card);
+//         card.appendChild(img);
+//         card.appendChild(cardBody);
+//         cardBody.appendChild(cardTitle);
+//         cardBody.appendChild(cardText);
+//         pokemonContainer.appendChild(div);
+//         PokemonColorType(monster.types, card, cardText);
 
-    })
+//     });
     
     
-}
+// }
 
 searchBtn.addEventListener('click', searchBar);
