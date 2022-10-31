@@ -55,10 +55,11 @@ MAINTAINERS
 -----------
 
  * Leonel Guerrero (LemonMantis5571) - https://github.com/LemonMantis5571
+ * APP Link: https://pokedexupdated.vercel.app/
 
 Future Implementations
 -----------
  * Search By type
  * More than 9 results for similar names
  * Stats info when a card is clicked
- * Mobile Ver  (Currently in work)
+ * Mobile Ver  (Currently in progress)
