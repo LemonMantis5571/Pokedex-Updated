@@ -43,7 +43,8 @@ Usage
 
 Search your pokemon by ID or Name (Take note that only the first 9 pokemons with similar name will appear so be a little more specific).
 
-![image](https://user-images.githubusercontent.com/85099589/199127037-28fbf37e-5514-4495-8585-9bdec9242368.png)
+![image](https://user-images.githubusercontent.com/85099589/199127554-81fa555d-e8f7-4dc1-9cac-a426bacc7127.png)
+
 
 
 
