@@ -258,9 +258,10 @@ function showPokemonFiltered(pokemon) {
     if(loadingSpinner) {
         removeChildNodes(loadingSpinner);
         loadingSpinner.remove();
-        previousButton.disabled = false;
-        nextButton.disabled = false;
+        previousButton.remove();
+        nextButton.remove();
     }
+
 
     pokemon.forEach(monster => {
         const div = document.createElement('div');

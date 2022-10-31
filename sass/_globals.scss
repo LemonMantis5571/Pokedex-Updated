@@ -65,6 +65,15 @@
                     border-color: var(--color1);
                 }
             }
+
+            .resetBTN {
+                
+                &:hover {
+                    animation: bounce 0.6s linear;
+                    border-color: var(--color1);
+                    background-color: #78C850;
+                }
+            }
         }
 
 }

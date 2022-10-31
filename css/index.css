@@ -40,6 +40,11 @@
   background-color: transparent;
   border-color: var(--color1);
 }
+.navbar form .resetBTN:hover {
+  animation: bounce 0.6s linear;
+  border-color: var(--color1);
+  background-color: #78C850;
+}
 
 .container {
   height: 800px;
