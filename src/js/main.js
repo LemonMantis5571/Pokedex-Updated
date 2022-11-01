@@ -19,7 +19,6 @@ previousButton.disabled = true;
 
 fetchPokemon();
 
-/* Adding event listeners to the previous and next buttons. */
 previousButton.addEventListener('click', () => {
 
         if(offset > 1){
