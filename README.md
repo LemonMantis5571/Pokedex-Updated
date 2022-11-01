@@ -14,7 +14,7 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
-Minimalistic page made from scratch using and PokeAPI  to a fully functional Pokedex.
+Minimalistic page made from scratch using Javascript and PokeAPI to a fully functional Pokedex.
 
 You can acess to the old version if desire.
 
