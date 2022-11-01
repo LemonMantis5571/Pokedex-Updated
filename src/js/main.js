@@ -167,6 +167,8 @@ function PokemonColorType (type, card, textStyle) {
     
 }
 
+
+
 // Search Bar
 
 /**
@@ -183,15 +185,18 @@ function PokemonColorType (type, card, textStyle) {
  * @param e - the event object
  */
 const searchBar =  async (e) =>  {
+    e.preventDefault();
+
+
+  /* Disabling the buttons while the search is being made. */
     previousButton.disabled = true;
     nextButton.disabled = true;
     searchBtn.disabled = true;
-    e.preventDefault();
+
     loadingScreen();
     removeChildNodes(pokemonContainer);
-    const id = document.querySelector('#searchBar').value.toLowerCase();
 
-    
+    const id = document.querySelector('#searchBar').value.toLowerCase();
 
     try{
         const promises = [];
@@ -216,7 +221,8 @@ const searchBar =  async (e) =>  {
     
             }));
           
-            const pokemonFiltered = pokemon.filter(monster => (monster.name.indexOf(id) > -1 || monster.id === Number(id)));
+            const pokemonFiltered = pokemon.filter(monster => 
+                (monster.name.indexOf(id) > -1 || monster.id === Number(id)));
 
             const PokemonReduced = pokemonFiltered.slice(0,9);
 
@@ -227,11 +233,13 @@ const searchBar =  async (e) =>  {
 
             else {
                 printAlert('Error, Make sure the pokemon exist', 'error');
-                fetchPokemon(offset, limit);
-            }
-            
-            
+                /* Making the buttons visible again. */
+                nextButton.style.display = 'block';
+                previousButton.style.display = 'block';
 
+                fetchPokemon(offset, limit);
+            }            
+            
         });        
             
     }
@@ -242,51 +250,5 @@ const searchBar =  async (e) =>  {
     searchBtn.disabled = false;
     
 }
-
-
-/**
- * The function takes an array of pokemon objects, removes the loading spinner, and then creates a div
- * for each pokemon object in the array, and appends it to the DOM.
- * @param pokemon - the array of pokemon objects
- */
-// function showPokemonFiltered(pokemon) {
-
-//     removeSpinners('SearchBar');
-
-
-//     pokemon.forEach(monster => {
-//         const div = document.createElement('div');
-//         div.classList.add('col-4');
-        
-//         const card = document.createElement('div');
-//         card.classList.add('card');
-                        
-        
-//         const img = document.createElement('img');
-//         img.classList.add('card-img-top');
-//         img.src = monster.image;
-        
-//         const cardBody = document.createElement('div');
-//         cardBody.classList.add('card-body');
-        
-//         const cardTitle = document.createElement('h5');
-//         cardTitle.textContent = `${monster.id}. ${monster.name.toUpperCase()}`;
-        
-//         const cardText = document.createElement('p');
-//         cardText.classList.add('card-text');
-                    
-        
-//         div.appendChild(card);
-//         card.appendChild(img);
-//         card.appendChild(cardBody);
-//         cardBody.appendChild(cardTitle);
-//         cardBody.appendChild(cardText);
-//         pokemonContainer.appendChild(div);
-//         PokemonColorType(monster.types, card, cardText);
-
-//     });
-    
-    
-// }
 
 searchBtn.addEventListener('click', searchBar);

@@ -51,7 +51,7 @@ export function removeSpinners(situation) {
   if(loadingSpinner && situation === 'SearchBar'){
     removeChildNodes(loadingSpinner);
     loadingSpinner.remove();
-    previousButton.remove();
-    nextButton.remove();
+    previousButton.style.display = 'none';
+    nextButton.style.display = 'none';
   }
 }
